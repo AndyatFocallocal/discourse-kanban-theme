@@ -172,11 +172,15 @@ const touchDrag = modifier((element, [component]) => {
     });
     element.dispatchEvent(dragStartEvent);
 
-    if (navigator.vibrate) {navigator.vibrate(50);}
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
+    }
   };
 
   const cancelDrag = () => {
-    if (!isDragging) {return;}
+    if (!isDragging) {
+      return;
+    }
 
     // Cancel animation frame
     if (animationFrameId) {
@@ -222,11 +226,15 @@ const touchDrag = modifier((element, [component]) => {
     element.dispatchEvent(dragEndEvent);
 
     isDragging = false;
-    if (navigator.vibrate) {navigator.vibrate(20);}
+    if (navigator.vibrate) {
+      navigator.vibrate(20);
+    }
   };
 
   const dropCard = () => {
-    if (!isDragging) {return;}
+    if (!isDragging) {
+      return;
+    }
 
     // Cancel animation frame
     if (animationFrameId) {
@@ -286,7 +294,9 @@ const touchDrag = modifier((element, [component]) => {
     element.dispatchEvent(dragEndEvent);
 
     isDragging = false;
-    if (navigator.vibrate) {navigator.vibrate(30);}
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
   };
 
   const handleTouchMove = (e) => {
@@ -304,7 +314,9 @@ const touchDrag = modifier((element, [component]) => {
   };
 
   const updateClonePosition = () => {
-    if (!clone || !scrollContainer) {return;}
+    if (!clone || !scrollContainer) {
+      return;
+    }
 
     // Get the Kanban container boundaries in viewport
     const containerRect = scrollContainer.getBoundingClientRect();
@@ -383,8 +395,12 @@ const touchDrag = modifier((element, [component]) => {
   }
 
   return () => {
-    if (longPressTimer) {clearTimeout(longPressTimer);}
-    if (animationFrameId) {cancelAnimationFrame(animationFrameId);}
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+    }
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+    }
     // Cancel any active drag on cleanup (e.g., navigation)
     if (isDragging) {
       cancelDrag();
