@@ -66,7 +66,7 @@ RSpec.describe "Testing A Theme or Theme Component", system: true do
     card = active_list.find("[data-topic-id='#{chat_active.id}']")
     page.execute_script("arguments[0].scrollIntoView();", card)
     card.drag_to(backlog_list)
-    find(".dialog-content .btn-primary").click
+    find(".d-modal .btn-primary").click
 
     expect(active_list).to have_css(".topic-card", count: 1)
     expect(backlog_list).to have_css(".topic-card", count: 3)
